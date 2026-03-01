@@ -111,7 +111,7 @@
     .proc{background:var(--dark);color:#fff}
     .proc .st{color:#fff}
     .psteps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.05);margin-top:72px}
-    .pstep{background:var(--dark);padding:44px 32px;border-top:2px solid transparent;transition:all .3s}
+    .pstep{background:var(--dark);padding:44px 32px;border-top:2px solid transparent;transition:all .3s;position:relative}.pstep:not(:last-child)::after{content:"→";position:absolute;right:-18px;top:44px;font-size:1.1rem;color:rgba(201,169,110,.5);z-index:2;pointer-events:none}@media(max-width:1024px){.pstep:not(:last-child)::after{display:none}}
     .pstep:hover{background:rgba(45,74,62,.15);border-color:var(--green)}
     .pnum{font-family:'Cormorant',serif;font-size:3.5rem;font-weight:300;color:rgba(122,191,158,.15);line-height:1;margin-bottom:22px;display:block}
     .pstep h4{font-family:'Cormorant',serif;font-size:1.2rem;color:#fff;margin-bottom:10px}
