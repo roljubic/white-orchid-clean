@@ -200,6 +200,15 @@
     @media(max-width:1024px){.wrap{padding:0 24px}.wg,.cg{grid-template-columns:1fr;gap:50px}.sg,.tg{grid-template-columns:1fr}.psteps{grid-template-columns:1fr 1fr}.fg2{grid-template-columns:1fr 1fr;gap:36px}.nl{display:none}.burger{display:flex}.cbi{grid-template-columns:1fr;gap:28px}.hstats{flex-wrap:wrap}.prow{grid-template-columns:1fr 1fr}}
     @media(max-width:640px){.wrap{padding:0 18px}section{padding:80px 0}h1{font-size:2.6rem}.hbtns{flex-direction:column}.frow{grid-template-columns:1fr}.psteps{grid-template-columns:1fr}.fg2{grid-template-columns:1fr}.cf{padding:32px 24px}.prow{grid-template-columns:1fr}}
   #scroll-progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--gold),#e8d5a3);z-index:9999;transition:width .1s linear;}
+  
+  /* Trust Badge Strip */
+  .trust-strip{padding:22px 0;border-top:1px solid rgba(44,95,58,0.1);border-bottom:1px solid rgba(44,95,58,0.1);background:#f0f5f0;overflow:hidden;}
+  .trust-strip__inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:28px;flex-wrap:wrap;justify-content:center;}
+  .trust-strip__label{font-family:Arial,sans-serif;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:#5a8a6a;white-space:nowrap;flex-shrink:0;}
+  .trust-strip__div{width:1px;height:18px;background:rgba(44,95,58,0.1);flex-shrink:0;}
+  .trust-strip__logos{display:flex;align-items:center;gap:32px;flex-wrap:wrap;justify-content:center;}
+  .trust-strip__logo{font-family:Georgia,serif;font-size:12.5px;color:#7a9a82;letter-spacing:0.3px;white-space:nowrap;}
+  @media(max-width:600px){.trust-strip__label,.trust-strip__div{display:none;}.trust-strip__logos{gap:16px;}.trust-strip__logo{font-size:11px;}}
   </style>
 
   <script type="application/ld+json">
@@ -256,6 +265,19 @@
   </div></div>
   <div class="scroll-ind">Scroll</div>
 </section>
+<div class="trust-strip">
+  <div class="trust-strip__inner">
+    <span class="trust-strip__label">As Featured In</span>
+    <div class="trust-strip__div"></div>
+    <div class="trust-strip__logos">
+      <span class="trust-strip__logo">Honolulu Magazine</span>
+      <span class="trust-strip__logo">Airbnb Newsroom</span>
+      <span class="trust-strip__logo">Hawaii Business Magazine</span>
+      <span class="trust-strip__logo">VRMA</span>
+      <span class="trust-strip__logo">Yelp for Business</span>
+    </div>
+  </div>
+</div>
 
 <div class="mq"><div class="mq-t">
   <span>Vacation Rental Turnover</span><span>Luxury Deep Cleaning</span><span>Estate Housekeeping</span><span>Linen Service</span><span>Eco-Safe Products</span><span>Same-Day Availability</span><span>Photo-Ready Results</span><span>5-Star Standard</span>
