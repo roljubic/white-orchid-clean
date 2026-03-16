@@ -639,5 +639,41 @@
 .mobile-cta-btn{display:block;text-align:center;background:#2c5f3a;color:#ffffff;font-size:0.9rem;font-weight:600;letter-spacing:0.06em;padding:14px 20px;border-radius:4px;text-decoration:none;}
 @media(max-width:768px){.mobile-cta-bar{display:block;}}
 </style>
+
+<!-- HOKU: Scroll-Triggered Lead Capture Modal (fires at 70% scroll, once per session) -->
+<div id="scroll-modal" style="display:none;position:fixed;inset:0;z-index:99999;align-items:center;justify-content:center;background:rgba(0,0,0,0.72);backdrop-filter:blur(4px);">
+  <div style="background:#f5f5f0;border:1px solid rgba(44,95,58,0.2);border-radius:8px;max-width:480px;width:90%;padding:40px 36px;position:relative;box-shadow:0 24px 60px rgba(0,0,0,0.6);">
+    <button onclick="closeScrollModal()" style="position:absolute;top:14px;right:18px;background:none;border:none;color:#888;font-size:1.4rem;cursor:pointer;line-height:1;">×</button>
+    <div style="color:#2c5f3a;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:12px;">One Moment</div>
+    <h3 style="color:#1a1a1a;font-size:1.75rem;font-weight:400;line-height:1.25;margin:0 0 16px;">One Bad Cleaning Can Cost You a Five-Star Rating</h3>
+    <p style="color:#555;font-size:0.9rem;line-height:1.65;margin:0 0 28px;">On O'ahu, a single poor cleanliness review drops average Airbnb rankings by 12–18 positions. White Orchid Clean offers a free first-turnover trial for qualified vacation rental hosts.</p>
+    <a href="#contact" onclick="closeScrollModal()" style="display:block;text-align:center;background:#2c5f3a;color:#f5f5f0;font-size:0.82rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:16px 24px;border-radius:4px;text-decoration:none;margin-bottom:12px;">Claim Your Free Trial Turnover →</a>
+    <p style="text-align:center;color:#777;font-size:0.75rem;margin:0;">No obligation. No sales pressure.</p>
+  </div>
+</div>
+<script>
+(function(){
+  if(sessionStorage.getItem('woc_modal_shown')) return;
+  var fired=false;
+  window.addEventListener('scroll',function(){
+    if(fired) return;
+    var scrolled=(window.scrollY+window.innerHeight)/document.documentElement.scrollHeight;
+    if(scrolled>=0.70){
+      fired=true;
+      sessionStorage.setItem('woc_modal_shown','1');
+      var m=document.getElementById('scroll-modal');
+      m.style.opacity='0';
+      m.style.display='flex';
+      setTimeout(function(){m.style.transition='opacity 0.35s';m.style.opacity='1';},20);
+    }
+  },{passive:true});
+})();
+function closeScrollModal(){
+  var m=document.getElementById('scroll-modal');
+  m.style.transition='opacity 0.25s';
+  m.style.opacity='0';
+  setTimeout(function(){m.style.display='none';},260);
+}
+<\/script>
 </body>
 </html>
