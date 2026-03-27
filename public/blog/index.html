@@ -30,8 +30,21 @@
     footer a { color: #b8965a; text-decoration: none; }
     @media (max-width: 600px) { header { padding: 16px 20px; } .hero { padding: 48px 20px 40px; } .grid { grid-template-columns: 1fr; padding: 40px 16px 60px; } }
   </style>
+  <style>
+    #scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: #2c5f3a;
+      z-index: 9999;
+      transition: width 0.1s linear;
+    }
+  </style>
 </head>
 <body>
+  <div id="scroll-progress"></div>
   <header>
     <a href="/" class="logo">White Orchid Clean</a>
     <a href="/" class="home">← Home</a>
@@ -95,5 +108,16 @@
   <footer>
     <a href="/">White Orchid Clean</a> · <a href="/#contact">Contact</a> · <a href="/#services">Services</a>
   </footer>
+  <script>
+    (function() {
+      var bar = document.getElementById('scroll-progress');
+      window.addEventListener('scroll', function() {
+        var scrollTop = window.scrollY || document.documentElement.scrollTop;
+        var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        var pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        bar.style.width = pct + '%';
+      }, { passive: true });
+    })();
+  </script>
 </body>
 </html>
